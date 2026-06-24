@@ -186,7 +186,7 @@
                   max=""
                   min="1995-06-16"
                 />
-                <span class="text-sm">Dec 17, 2025</span>
+                <span class="text-sm datespan">Dec 17, 2025</span>
               </label>
               <button
                 id="load-date-btn"
@@ -581,6 +581,7 @@
           >
             <!-- Mercury -->
             <div
+            id="mercury"
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="mercury"
               style="--planet-color: #eab308"
@@ -729,7 +730,7 @@
               class="xl:col-span-2 bg-slate-800/50 border border-slate-700 rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8"
             >
               <div
-                class="flex flex-col xl:flex-row xl:items-start space-y-4 xl:space-y-0"
+                class="flex flex-col xl:flex-row xl:items-start space-y-4 xl:space-y-0 planetDesc"
               >
                 <div
                   class="relative h-48 w-48 md:h-64 md:w-64 shrink-0 mx-auto xl:mr-6"
@@ -769,7 +770,7 @@
                   </p>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-2 md:gap-4 mt-4">
+              <div class="grid grid-cols-2 gap-2 md:gap-4 mt-4 planetMeasers">
                 <div class="bg-slate-900/50 rounded-lg p-3 md:p-4">
                   <p
                     class="text-xs text-slate-400 mb-1 flex items-center gap-1"
@@ -863,7 +864,7 @@
             </div>
             <div class="space-y-6">
               <div
-                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6"
+                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 dicovInfo"
               >
                 <h4 class="font-semibold mb-4 flex items-center">
                   <i class="fas fa-user-astronaut text-purple-400 mr-2"></i>
@@ -903,7 +904,7 @@
                 </div>
               </div>
               <div
-                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6"
+                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 qiuckFacts"
               >
                 <h4 class="font-semibold mb-4 flex items-center">
                   <i class="fas fa-lightbulb text-yellow-400 mr-2"></i>
@@ -937,7 +938,7 @@
                 </ul>
               </div>
               <div
-                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6"
+                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 orbitChar"
               >
                 <h4 class="font-semibold mb-4 flex items-center">
                   <i class="fas fa-satellite text-blue-400 mr-2"></i>
