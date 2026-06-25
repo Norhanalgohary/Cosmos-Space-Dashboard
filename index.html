@@ -205,10 +205,90 @@
           </div>
           <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8 homeimg">
             <div class="xl:col-span-2 ">
-              
+               <div
+                id="apod-image-container"
+                class="relative rounded-2xl overflow-hidden group h-[300px] md:h-[400px] lg:h-[600px] bg-slate-800/50 flex items-center justify-center"
+              >
+                <div id="apod-loading" class="text-center hidden">
+                  <i
+                    class="fas fa-spinner fa-spin text-4xl text-blue-400 mb-4"
+                  ></i>
+                  <p class="text-slate-400">Loading today's image...</p>
+                </div>
+                <!-- Using a placeholder image or one from assets if available. Using a reliable external placeholder for now or a relative path if we knew one. Sticking to a colored placeholder div if no image, but let's try a realistic placeholder or just the rocket icon style used elsewhere if we want to be safe. But user wants design. I'll use a relative path assuming assets exist or a generic space placeholder. -->
+                <img
+                  id="apod-image"
+                  class="w-full h-full object-cover"
+                  src="images/placeholder.webp"
+                  alt="Astronomy Picture of the Day"
+                />
+                <div
+                  class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <button
+                      class="w-full py-3 bg-white/10 backdrop-blur-md rounded-lg font-semibold hover:bg-white/20 transition-colors"
+                    >
+                      <i class="fas fa-expand mr-2"></i>View Full Resolution
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="space-y-4 md:space-y-6">
-             
+             <div
+                class="bg-slate-800/50 border border-slate-700 rounded-xl md:rounded-2xl p-4 md:p-6"
+              >
+                <h3
+                  id="apod-title"
+                  class="text-lg md:text-2xl font-semibold mb-3 md:mb-4"
+                >
+                  
+                </h3>
+                <div
+                  class="flex items-center space-x-4 mb-4 text-sm text-slate-400"
+                >
+                  <span id="apod-date-detail"
+                    ><i class="far fa-calendar mr-2"></i></span
+                  >
+                </div>
+                <p
+                  id="apod-explanation"
+                  class="text-slate-300 leading-relaxed mb-4"
+                >
+                  
+                </p>
+                <div
+                  id="apod-copyright"
+                  class="text-xs text-slate-400 italic mb-4"
+                >
+                  &copy; NASA/JPL
+                </div>
+              </div>
+              <div
+                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6"
+              >
+                <h4 class="font-semibold mb-3 flex items-center">
+                  <i class="fas fa-info-circle text-blue-400 mr-2"></i>
+                  Image Details
+                </h4>
+                <div class="space-y-3 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Date</span>
+                    <span id="apod-date-info" class="font-medium"
+                      >2024-03-14</span
+                    >
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Media Type</span>
+                    <span id="apod-media-type" class="font-medium">Image</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Source</span>
+                    <span class="font-medium">NASA APOD</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -361,12 +441,391 @@
           </div>
           <div class="mb-6">
             <h3 class="text-xl font-semibold mb-4">All Upcoming Launches</h3>
+            
           </div>
           <div
             id="launches-grid"
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <!-- STATIC LAUNCH CARD 1 -->
+            <div
+              class="card1 bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
+            >
+              <div
+                class="relative h-48 bg-slate-900/50 flex items-center justify-center"
+              >
+                <i class="fas fa-space-shuttle text-5xl text-slate-700"></i>
+                <div class="absolute top-3 right-3">
+                  <span
+                    class="px-3 py-1 bg-green-500/90 text-white backdrop-blur-sm rounded-full text-xs font-semibold"
+                  >
+                    Go
+                  </span>
+                </div>
+              </div>
+              <div class="p-5">
+                <div class="mb-3">
+                  <h4
+                    class="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors"
+                  >
+                    Falcon 9 Block 5 | Starlink Group 6-44
+                  </h4>
+                  <p class="text-sm text-slate-400 flex items-center gap-2">
+                    <i class="fas fa-building text-xs"></i>
+                    SpaceX
+                  </p>
+                </div>
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-calendar text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Mar 15, 2024</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-clock text-slate-500 w-4"></i>
+                    <span class="text-slate-300">23:00 UTC</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-rocket text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Falcon 9</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-map-marker-alt text-slate-500 w-4"></i>
+                    <span class="text-slate-300 line-clamp-1">KSC, LC-39A</span>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-2 pt-4 border-t border-slate-700"
+                >
+                  <button
+                    class="flex-1 px-4 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors text-sm font-semibold"
+                  >
+                    Details
+                  </button>
+                  <button
+                    class="px-3 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- STATIC LAUNCH CARD 2 -->
+            <div
+              class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
+            >
+              <div
+                class="relative h-48 bg-slate-900/50 flex items-center justify-center"
+              >
+                <i class="fas fa-rocket text-5xl text-slate-700"></i>
+                <div class="absolute top-3 right-3">
+                  <span
+                    class="px-3 py-1 bg-yellow-500/90 text-white backdrop-blur-sm rounded-full text-xs font-semibold"
+                  >
+                    TBC
+                  </span>
+                </div>
+              </div>
+              <div class="p-5">
+                <div class="mb-3">
+                  <h4
+                    class="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors"
+                  >
+                    Electron | "Owl Night Long"
+                  </h4>
+                  <p class="text-sm text-slate-400 flex items-center gap-2">
+                    <i class="fas fa-building text-xs"></i>
+                    Rocket Lab
+                  </p>
+                </div>
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-calendar text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Mar 16, 2024</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-clock text-slate-500 w-4"></i>
+                    <span class="text-slate-300">09:15 UTC</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-rocket text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Electron</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-map-marker-alt text-slate-500 w-4"></i>
+                    <span class="text-slate-300 line-clamp-1"
+                      >Mahia Peninsula, NZ</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-2 pt-4 border-t border-slate-700"
+                >
+                  <button
+                    class="flex-1 px-4 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors text-sm font-semibold"
+                  >
+                    Details
+                  </button>
+                  <button
+                    class="px-3 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- STATIC LAUNCH CARD 3 -->
+            <div
+              class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
+            >
+              <div
+                class="relative h-48 bg-slate-900/50 flex items-center justify-center"
+              >
+                <i class="fas fa-satellite-dish text-5xl text-slate-700"></i>
+                <div class="absolute top-3 right-3">
+                  <span
+                    class="px-3 py-1 bg-blue-500/90 text-white backdrop-blur-sm rounded-full text-xs font-semibold"
+                  >
+                    TBD
+                  </span>
+                </div>
+              </div>
+              <div class="p-5">
+                <div class="mb-3">
+                  <h4
+                    class="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors"
+                  >
+                    Ariane 6 | Maiden Flight
+                  </h4>
+                  <p class="text-sm text-slate-400 flex items-center gap-2">
+                    <i class="fas fa-building text-xs"></i>
+                    Arianespace
+                  </p>
+                </div>
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-calendar text-slate-500 w-4"></i>
+                    <span class="text-slate-300">June 2024</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-clock text-slate-500 w-4"></i>
+                    <span class="text-slate-300">TBD</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-rocket text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Ariane 62</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-map-marker-alt text-slate-500 w-4"></i>
+                    <span class="text-slate-300 line-clamp-1"
+                      >Guiana Space Centre</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-2 pt-4 border-t border-slate-700"
+                >
+                  <button
+                    class="flex-1 px-4 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors text-sm font-semibold"
+                  >
+                    Details
+                  </button>
+                  <button
+                    class="px-3 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
+            >
+              <div
+                class="relative h-48 bg-slate-900/50 flex items-center justify-center"
+              >
+                <i class="fas fa-space-shuttle text-5xl text-slate-700"></i>
+                <div class="absolute top-3 right-3">
+                  <span
+                    class="px-3 py-1 bg-green-500/90 text-white backdrop-blur-sm rounded-full text-xs font-semibold"
+                  >
+                    Go
+                  </span>
+                </div>
+              </div>
+              <div class="p-5">
+                <div class="mb-3">
+                  <h4
+                    class="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors"
+                  >
+                    Falcon 9 Block 5 | Starlink Group 6-44
+                  </h4>
+                  <p class="text-sm text-slate-400 flex items-center gap-2">
+                    <i class="fas fa-building text-xs"></i>
+                    SpaceX
+                  </p>
+                </div>
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-calendar text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Mar 15, 2024</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-clock text-slate-500 w-4"></i>
+                    <span class="text-slate-300">23:00 UTC</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-rocket text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Falcon 9</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-map-marker-alt text-slate-500 w-4"></i>
+                    <span class="text-slate-300 line-clamp-1">KSC, LC-39A</span>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-2 pt-4 border-t border-slate-700"
+                >
+                  <button
+                    class="flex-1 px-4 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors text-sm font-semibold"
+                  >
+                    Details
+                  </button>
+                  <button
+                    class="px-3 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- STATIC LAUNCH CARD 2 -->
+            <div
+              class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
+            >
+              <div
+                class="relative h-48 bg-slate-900/50 flex items-center justify-center"
+              >
+                <i class="fas fa-rocket text-5xl text-slate-700"></i>
+                <div class="absolute top-3 right-3">
+                  <span
+                    class="px-3 py-1 bg-yellow-500/90 text-white backdrop-blur-sm rounded-full text-xs font-semibold"
+                  >
+                    TBC
+                  </span>
+                </div>
+              </div>
+              <div class="p-5">
+                <div class="mb-3">
+                  <h4
+                    class="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors"
+                  >
+                    Electron | "Owl Night Long"
+                  </h4>
+                  <p class="text-sm text-slate-400 flex items-center gap-2">
+                    <i class="fas fa-building text-xs"></i>
+                    Rocket Lab
+                  </p>
+                </div>
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-calendar text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Mar 16, 2024</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-clock text-slate-500 w-4"></i>
+                    <span class="text-slate-300">09:15 UTC</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-rocket text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Electron</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-map-marker-alt text-slate-500 w-4"></i>
+                    <span class="text-slate-300 line-clamp-1"
+                      >Mahia Peninsula, NZ</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-2 pt-4 border-t border-slate-700"
+                >
+                  <button
+                    class="flex-1 px-4 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors text-sm font-semibold"
+                  >
+                    Details
+                  </button>
+                  <button
+                    class="px-3 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- STATIC LAUNCH CARD 3 -->
+            <div
+              class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
+            >
+              <div
+                class="relative h-48 bg-slate-900/50 flex items-center justify-center"
+              >
+                <i class="fas fa-satellite-dish text-5xl text-slate-700"></i>
+                <div class="absolute top-3 right-3">
+                  <span
+                    class="px-3 py-1 bg-blue-500/90 text-white backdrop-blur-sm rounded-full text-xs font-semibold"
+                  >
+                    TBD
+                  </span>
+                </div>
+              </div>
+              <div class="p-5">
+                <div class="mb-3">
+                  <h4
+                    class="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors"
+                  >
+                    Ariane 6 | Maiden Flight
+                  </h4>
+                  <p class="text-sm text-slate-400 flex items-center gap-2">
+                    <i class="fas fa-building text-xs"></i>
+                    Arianespace
+                  </p>
+                </div>
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-calendar text-slate-500 w-4"></i>
+                    <span class="text-slate-300">June 2024</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-clock text-slate-500 w-4"></i>
+                    <span class="text-slate-300">TBD</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-rocket text-slate-500 w-4"></i>
+                    <span class="text-slate-300">Ariane 62</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-map-marker-alt text-slate-500 w-4"></i>
+                    <span class="text-slate-300 line-clamp-1"
+                      >Guiana Space Centre</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-2 pt-4 border-t border-slate-700"
+                >
+                  <button
+                    class="flex-1 px-4 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors text-sm font-semibold"
+                  >
+                    Details
+                  </button>
+                  <button
+                    class="px-3 py-2 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
             <div
               class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
             >
@@ -600,6 +1059,7 @@
             </div>
             <!-- Venus -->
             <div
+              id="venus"
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="venus"
               style="--planet-color: #f97316"
@@ -618,6 +1078,7 @@
             </div>
             <!-- Earth -->
             <div
+             id="earth"
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="earth"
               style="--planet-color: #3b82f6"
@@ -636,6 +1097,7 @@
             </div>
             <!-- Mars -->
             <div
+            id="mars"
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="mars"
               style="--planet-color: #ef4444"
@@ -654,6 +1116,7 @@
             </div>
             <!-- Jupiter -->
             <div
+            id="jupiter"
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="jupiter"
               style="--planet-color: #fb923c"
@@ -672,6 +1135,7 @@
             </div>
             <!-- Saturn -->
             <div
+             id="saturn"
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="saturn"
               style="--planet-color: #facc15"
@@ -690,6 +1154,7 @@
             </div>
             <!-- Uranus -->
             <div
+            id="uranus"
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="uranus"
               style="--planet-color: #06b6d4"
@@ -708,6 +1173,7 @@
             </div>
             <!-- Neptune -->
             <div
+             id="neptune"
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="neptune"
               style="--planet-color: #2563eb"
@@ -738,7 +1204,7 @@
                   <img
                     id="planet-detail-image"
                     class="w-full h-full object-contain"
-                    src="./assets/images/earth.png"
+                    src="images/earth.png"
                     alt="earth planet detailed realistic render with clouds and continents"
                   />
                 </div>
